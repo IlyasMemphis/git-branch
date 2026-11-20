@@ -83,7 +83,12 @@ class Program
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Ошибка: " + ex.Message);
+            if (ex is FormatException)
+                Console.WriteLine("Ошибка: введено неверное значение. Там, где требуется число, введите число.");
+            else if (ex is OverflowException)
+                Console.WriteLine("Ошибка: введено слишком большое или слишком маленькое число.");
+            else
+                Console.WriteLine("Ошибка: " + ex.Message);
             Console.ReadLine();
         }
     }
