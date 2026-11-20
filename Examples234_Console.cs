@@ -47,36 +47,44 @@ class Program
 {
     static void Main()
     {
-        Product product = new Product();
-        Console.Write("Название товара: ");
-        product.Title = Console.ReadLine();
-        Console.Write("Цена: ");
-        product.Price = decimal.Parse(Console.ReadLine());
-        Console.Write("Количество: ");
-        product.Quantity = int.Parse(Console.ReadLine());
-
-        Console.Write("Номер заказа: ");
-        int id = int.Parse(Console.ReadLine());
-        Console.Write("Имя покупателя: ");
-        string customerName = Console.ReadLine();
-        Console.Write("Сумма заказа: ");
-        decimal totalAmount = decimal.Parse(Console.ReadLine());
-        Order order = new Order(id, customerName, totalAmount);
-
-        TemperatureSensor sensor = new TemperatureSensor();
-        Console.Write("Температура в градусах Цельсия: ");
-        sensor.Celsius = double.Parse(Console.ReadLine());
-
-        Console.WriteLine();
-        Console.WriteLine("Товар: " + product.Title);
-        Console.WriteLine("Цена: " + product.Price);
-        Console.WriteLine("Количество: " + product.Quantity);
-        Console.WriteLine();
-        Console.WriteLine("Номер заказа: " + order.Id);
-        Console.WriteLine("Покупатель: " + order.CustomerName);
-        Console.WriteLine("Сумма заказа: " + order.TotalAmount);
-        Console.WriteLine();
-        Console.WriteLine("Цельсий: " + sensor.Celsius);
-        Console.WriteLine("Фаренгейт: " + sensor.Fahrenheit);
+        try
+        {
+            Product product = new Product();
+            Console.Write("Название товара: ");
+            product.Title = Console.ReadLine();
+            Console.Write("Цена: ");
+            product.Price = decimal.Parse(Console.ReadLine());
+            Console.Write("Количество: ");
+            product.Quantity = int.Parse(Console.ReadLine());
+    
+            Console.Write("Номер заказа: ");
+            int id = int.Parse(Console.ReadLine());
+            Console.Write("Имя покупателя: ");
+            string customerName = Console.ReadLine();
+            Console.Write("Сумма заказа: ");
+            decimal totalAmount = decimal.Parse(Console.ReadLine());
+            Order order = new Order(id, customerName, totalAmount);
+    
+            TemperatureSensor sensor = new TemperatureSensor();
+            Console.Write("Температура в градусах Цельсия: ");
+            sensor.Celsius = double.Parse(Console.ReadLine());
+    
+            Console.WriteLine();
+            Console.WriteLine("Товар: " + product.Title);
+            Console.WriteLine("Цена: " + product.Price);
+            Console.WriteLine("Количество: " + product.Quantity);
+            Console.WriteLine();
+            Console.WriteLine("Номер заказа: " + order.Id);
+            Console.WriteLine("Покупатель: " + order.CustomerName);
+            Console.WriteLine("Сумма заказа: " + order.TotalAmount);
+            Console.WriteLine();
+            Console.WriteLine("Цельсий: " + sensor.Celsius);
+            Console.WriteLine("Фаренгейт: " + sensor.Fahrenheit);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Ошибка: " + ex.Message);
+            Console.ReadLine();
+        }
     }
 }
